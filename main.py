@@ -22,7 +22,11 @@ for filepath in filepaths:
     # Add name to pdf file
     pdf.set_font(family="Times", size=16, style="B")
     pdf.cell(h=10, w=50, txt=name, ln=1)
-
+    # Get content of text file
+    with open(filepath, "r") as file:
+        content = file.read()
+    pdf.set_font(family="Times", size=12)
+    pdf.multi_cell(txt=content, h=6, w=0)
 
 # Produce the pdf
 
